@@ -25,6 +25,8 @@
 #ifndef CONFIG_H
 #define CONFIG_H 1
 
+#include <limits.h>
+
 /*****************************************
  *					 *
  *  Start of user configuration options  *
@@ -73,13 +75,13 @@
 
 /* Size in bits of a bmp_t.  Not necessarily a power of two. */
 
-#define BMP_BIT   32
+#define BMP_BIT   __WORDSIZE
 
 /* The highest power of two that is strictly less than BMP_BIT.
  * Initialises the index of a binary search for set bits in a bmp_t.
  */
 
-#define BMP_SUB   16
+#define BMP_SUB   (__WORDSIZE / 2)
 
 /*****************************************
  *					 *
